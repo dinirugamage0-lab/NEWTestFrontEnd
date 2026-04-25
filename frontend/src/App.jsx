@@ -13,7 +13,7 @@ function App() {
 
   const fetchItems = async () => {
     try {
-      const res = await axios.get('https://newtestbackend-production.up.railway.app/');
+      const res = await axios.get('https://newtestbackend-production.up.railway.app/api/items');
       setItems(res.data);
     } catch (err) {
       console.error('Error fetching items:', err);
@@ -31,7 +31,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://newtestbackend-production.up.railway.app/', formData);
+      await axios.post('https://newtestbackend-production.up.railway.app/api/items', formData);
       fetchItems(); // Refresh the list
       setFormData({
         name: '',
