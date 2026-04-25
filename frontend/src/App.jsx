@@ -6,6 +6,8 @@ function App() {
   const [formData, setFormData] = useState({
     name: '',
     price: '',
+    description: '', // TODO (Student): Add missing fields for the form
+    category: ''
     // TODO (Student): Add missing fields for the state
   });
 
@@ -34,6 +36,8 @@ function App() {
       setFormData({
         name: '',
         price: '',
+        description: '', // TODO (Student): Clear the missing fields here
+        category: '' // TODO (Student): Clear the missing fields here
         // TODO (Student): Clear the missing fields here
       });
     } catch (err) {
@@ -70,13 +74,43 @@ function App() {
             <input
               type="number"
               name="price"
+
               value={formData.price}
               onChange={handleChange}
               required
             />
           </div>
 
-          {/* TODO (Student): Add input fields for 'description' and 'category' here */}
+          {
+          <div className="form-group"> 
+            <label>Description:</label>
+            <input
+              type="text"
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              required
+            />
+
+          </div>
+}
+{
+          <div className="form-group">
+            <label>Category:</label>
+            <select
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select a category</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Books">Books</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Home">Home</option>
+              <option value="Other">Other</option>
+            </select>
+            </div>}
 
           <button type="submit" className="btn-primary">Add Item</button>
         </form>
